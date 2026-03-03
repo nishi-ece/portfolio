@@ -4,16 +4,18 @@
     <title>Certifications | Nishi Sheeba</title>
     <link rel="stylesheet" href="css/styles.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script>
-        // Password protection script
-        const correctPassword = "Nishi123"; // Set your password here
-        const userPassword = prompt("Enter password to access projects:");
+    // SHA256 hash of your password (e.g., "Nishi123")
+    const correctHash = "a4bfbf4697e8e72d0d51f1d2f4c8120c29f2bde7e1d4b657ab3c2a6f5de0c0c0";
 
-        if (userPassword !== correctPassword) {
-            alert("Incorrect password! You will be redirected.");
-            window.location.href = "index.html"; // Redirect to homepage if wrong
-        }
-        // If correct, user can see the page
+    const userInput = prompt("Enter password to access projects:");
+    const userHash = CryptoJS.SHA256(userInput).toString();
+
+    if(userHash !== correctHash){
+        alert("Incorrect password!");
+        window.location.href = "index.html";
+    }
     </script>
 </head>
 <body>
