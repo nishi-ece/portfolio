@@ -3,6 +3,18 @@
 <head>
     <title>Certifications | Nishi Sheeba</title>
     <link rel="stylesheet" href="css/styles.css">
+
+    <script>
+        // Password protection script
+        const correctPassword = "Nishi123"; // Set your password here
+        const userPassword = prompt("Enter password to access projects:");
+
+        if (userPassword !== correctPassword) {
+            alert("Incorrect password! You will be redirected.");
+            window.location.href = "index.html"; // Redirect to homepage if wrong
+        }
+        // If correct, user can see the page
+    </script>
 </head>
 <body>
 
@@ -21,36 +33,30 @@
 
     <div class="card">
         <ul>
-            <h3><a href="assets/Self_Healing.png"  
-            target="_blank">
+            <h3><a href="assets/Self_Healing.png" target="_blank">
             Workflow for project: End-to-end automation to check server uptime and capture incidents in real time
             </a></h3>
-            <p>Tools Used: Ansible, Bash, Linux, CI/CD, Python, Service now, Git, Vscode</p>
+            <p>Tools Used: Ansible, Bash, Linux, CI/CD, Python, ServiceNow, Git, VSCode</p>
 
-            <h3><a href="assets/Certificate_exipry_check.png"  
-            target="_blank">
-            Workflow for project: Check exipry for certificates
+            <h3><a href="assets/Certificate_exipry_check.png" target="_blank">
+            Workflow for project: Check expiry for certificates
             </a></h3>
-            <p>Tools Used: Ansible, Bash, Linux, CI/CD, Git, Vscode</p>
+            <p>Tools Used: Ansible, Bash, Linux, CI/CD, Git, VSCode</p>
 
-            <h3><a href="assets/Configuration_deployment.png"  
-            target="_blank">
-            Workflow for project: Build/Configuration deployement
+            <h3><a href="assets/Configuration_deployment.png" target="_blank">
+            Workflow for project: Build/Configuration deployment
             </a></h3>
-            <p>Tools Used: Ansible, Bash, Linux, CI/CD, Git, Vscode</p>
+            <p>Tools Used: Ansible, Bash, Linux, CI/CD, Git, VSCode</p>
 
-            <h3><a href="assets/Server_blackout_check.png"  
-            target="_blank">
-            Workflow for project: Checking and removing unnecessary balckouts
+            <h3><a href="assets/Server_blackout_check.png" target="_blank">
+            Workflow for project: Checking and removing unnecessary blackouts
             </a></h3>
-            <p>Tools Used: Ansible, Bash, Linux, CI/CD, Git, Vscode</p>
+            <p>Tools Used: Ansible, Bash, Linux, CI/CD, Git, VSCode</p>
 
-            <h3><a href="assets/Weblogic_patching.png"  
-            target="_blank">
-            Workflow for project: Weblogic patching for linux servers
+            <h3><a href="assets/Weblogic_patching.png" target="_blank">
+            Workflow for project: Weblogic patching for Linux servers
             </a></h3>
-            <p>Tools Used: Ansible, Bash, Linux, CI/CD, Git, Vscode</p>
-
+            <p>Tools Used: Ansible, Bash, Linux, CI/CD, Git, VSCode</p>
         </ul>
     </div>
 </div>
