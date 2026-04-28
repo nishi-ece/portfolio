@@ -6,29 +6,21 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script>
-    // SHA256 hash for "Nishi31"
-    const correctHash = "6f4b6612126f0b9f5d0d7f2f4bbfdfb6dcbf07c6c9bbdb0b3c3d1d0a1b6e5c3d";
+    // SHA256 hash of your password (e.g., "Nishi123")
+    const correctHash = "a4bfbf4697e8e72d0d51f1d2f4c8120c29f2bde7e1d4b657ab3c2a6f5de0c0c0";
 
     const userInput = prompt("Enter password to access projects:");
+    const userHash = CryptoJS.SHA256(userInput).toString();
 
-    // Handle cancel or empty input
-    if(!userInput){
-        alert("Access cancelled!");
+    if(userHash !== correctHash){
+        alert("Incorrect password!");
         window.location.href = "index.html";
-    } else {
-        const userHash = CryptoJS.SHA256(userInput.trim()).toString();
-
-        if(userHash !== correctHash){
-            alert("Incorrect password!");
-            window.location.href = "index.html";
-        }
     }
     </script>
 </head>
 <body>
 
-<nav>
-    <ul>
+<nav><ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="experience.html">Experience</a></li>
@@ -36,8 +28,7 @@
         <li><a href="projects.html">Projects</a></li>
         <li><a href="certifications.html">Certifications</a></li>
         <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
+    </ul></nav>
 
 <div class="container">
     <h1>Certifications</h1>
@@ -75,6 +66,5 @@
 <footer>
     © 2026 Nishi Sheeba | Vancouver, BC
 </footer>
-
 </body>
 </html>
