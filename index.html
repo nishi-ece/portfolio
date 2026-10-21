@@ -44,8 +44,8 @@ h1{font:800 clamp(2.6rem,6vw,4.6rem)/1 var(--display);letter-spacing:-.03em;marg
 
 /* fleet grid */
 .fleet{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px}
-.grid{display:grid;grid-template-columns:repeat(20,1fr);gap:5px}
-.grid i{aspect-ratio:1;border-radius:3px;background:var(--amber);transition:background .5s ease}
+.grid{display:grid;grid-template-columns:repeat(40,1fr);gap:3px}
+.grid i{aspect-ratio:1;border-radius:2px;background:var(--amber);transition:background .5s ease}
 .grid i.ok{background:var(--mint)}
 .fleet-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;font-weight:600}
 .count{font:800 1.6rem var(--display)}
@@ -104,6 +104,8 @@ footer{background:var(--ink);color:#9AA5BC;padding:0 0 32px;font-size:.9rem}
   .hero .wrap{grid-template-columns:1fr;gap:40px}
   .hero{padding:48px 0 56px}
   .proj > li{grid-template-columns:1fr}
+  .grid{gap:2px}
+  .fleet{padding:18px}
   .job{padding:24px}
   section{padding:56px 0}
 }
@@ -143,13 +145,13 @@ footer{background:var(--ink);color:#9AA5BC;padding:0 0 32px;font-size:.9rem}
           <a class="btn ghost" href="#contact">Get in touch</a>
         </div>
       </div>
-      <div class="fleet" aria-label="Animated grid of 800 servers having their Self-Healing">
+      <div class="fleet" aria-label="Animated grid of 800 servers having self healing implemented">
         <div class="fleet-top">
           <span>Self-Healing implemented</span>
           <span class="count"><span id="n">0</span> / 800</span>
         </div>
         <div class="grid" id="grid" aria-hidden="true"></div>
-        <p>Self healing automation across 800+ WebLogic servers, built with Ansible and Bash</p>
+        <p>Self healing automation across 800+ WebLogic servers, built with Ansible and Bash.</p>
         <p><button type="button" id="replay">Run it again</button></p>
       </div>
     </div>
@@ -173,7 +175,7 @@ footer{background:var(--ink);color:#9AA5BC;padding:0 0 32px;font-size:.9rem}
         <h3>System Engineer, Tata Consultancy Services</h3>
         <p class="when">June 2021 to August 2024</p>
         <ul>
-          <li class="big">Automated Self-Healing for 800+ Weblogic servers using Ansible and Bash.</li>
+          <li class="big">Automated Self-Healing for 800+ WebLogic servers using Ansible and Bash.</li>
           <li>Managed Linux (RHEL) production servers and kept them highly available.</li>
           <li>Administered WebLogic and Tomcat middleware environments.</li>
           <li>Connected monitoring to Prometheus, Grafana, PagerDuty and Slack.</li>
@@ -266,7 +268,7 @@ footer{background:var(--ink);color:#9AA5BC;padding:0 0 32px;font-size:.9rem}
       <p class="big"><a href="mailto:nishisheeba196@gmail.com">nishisheeba196@gmail.com</a></p>
       <ul>
         <li>Vancouver, BC</li>
-        <li><a href="www.linkedin.com/in/nishi-sheeba-sunderraj-justin-89243b18b">LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/nishi-sheeba-sunderraj-justin-89243b18b">LinkedIn</a></li>
       </ul>
     </div>
   </section>
