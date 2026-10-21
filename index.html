@@ -1,51 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Nishi Sheeba | Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nishi Sheeba, Systems Engineer</title>
+<meta name="description" content="Linux systems administrator and automation specialist in Vancouver, BC. Ansible, RHEL, WebLogic, CI/CD and 24/7 production support.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F5FA; --paper:#FFFFFF; --ink:#101828; --muted:#4B5565; --line:#D5DCE8;
+  --cobalt:#2B4EFF; --amber:#FFB020; --mint:#12B886;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* nav */
+header{position:sticky;top:0;z-index:10;background:rgba(242,245,250,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.brand{font:800 1.15rem var(--display);text-decoration:none}
+nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;overflow-x:auto}
+nav ul a{display:block;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:500;font-size:.95rem;color:var(--muted);white-space:nowrap}
+nav ul a:hover{background:var(--paper);color:var(--ink)}
+
+/* hero */
+.hero{padding:72px 0 80px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center}
+h1{font:800 clamp(2.6rem,6vw,4.6rem)/1 var(--display);letter-spacing:-.03em;margin:0 0 20px}
+.role{font:600 1.2rem var(--display);color:var(--cobalt);margin:0 0 20px}
+.lede{max-width:56ch;color:var(--muted);margin:0 0 32px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:13px 22px;border-radius:10px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.primary:hover{background:var(--cobalt);border-color:var(--cobalt)}
+.btn.ghost:hover{background:var(--paper)}
+
+/* fleet grid */
+.fleet{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px}
+.grid{display:grid;grid-template-columns:repeat(20,1fr);gap:5px}
+.grid i{aspect-ratio:1;border-radius:3px;background:var(--amber);transition:background .5s ease}
+.grid i.ok{background:var(--mint)}
+.fleet-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;font-weight:600}
+.count{font:800 1.6rem var(--display)}
+.fleet p{margin:16px 0 0;font-size:.95rem;color:var(--muted)}
+.fleet button{font:600 .9rem var(--body);background:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;cursor:pointer;color:var(--ink)}
+.fleet button:hover{border-color:var(--ink)}
+
+/* sections */
+section{padding:80px 0;border-top:1px solid var(--line)}
+h2{font:800 clamp(1.9rem,4vw,2.8rem)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 32px}
+.about{max-width:68ch}
+.about p{margin:0 0 18px}
+
+/* experience */
+.job{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:36px}
+.job h3{font:700 1.5rem var(--display);margin:0}
+.job .when{color:var(--muted);margin:4px 0 24px;font-weight:500}
+.job ul{margin:0;padding:0;list-style:none;display:grid;gap:14px}
+.job li{padding-left:26px;position:relative}
+.job li::before{content:"";position:absolute;left:0;top:.6em;width:10px;height:10px;border-radius:3px;background:var(--mint)}
+.job li.big{font:700 1.25rem/1.4 var(--display)}
+.job li.big::before{background:var(--cobalt)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.skill{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px}
+.skill h3{font:700 1.05rem var(--display);margin:0 0 12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chips li{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:.9rem;font-weight:500}
+
+/* projects */
+.proj{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.proj li{display:grid;grid-template-columns:1fr auto;gap:12px 32px;padding:28px 0;border-bottom:1px solid var(--line);align-items:start}
+.proj h3{font:700 1.35rem var(--display);margin:0 0 6px}
+.proj p{margin:0 0 14px;color:var(--muted);max-width:60ch}
+.proj a.view{font-weight:600;color:var(--cobalt);white-space:nowrap}
+.proj a.view:hover{text-decoration-thickness:3px}
+
+/* certs */
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.cert{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px}
+.cert h3{font:700 1.15rem var(--display);margin:0 0 6px}
+.cert p{margin:0;color:var(--muted)}
+.cert.wip{border-style:dashed}
+
+/* contact */
+.contact{background:var(--ink);color:#fff;border-top:0}
+.contact h2{color:#fff}
+.contact .big{font:700 clamp(1.3rem,3.5vw,2.1rem) var(--display);word-break:break-word}
+.contact .big a{text-decoration-color:var(--amber);text-underline-offset:6px}
+.contact ul{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:8px;color:#C9D1E0}
+.contact a:hover{color:var(--amber)}
+footer{background:var(--ink);color:#9AA5BC;padding:0 0 32px;font-size:.9rem}
+
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;gap:40px}
+  .hero{padding:48px 0 56px}
+  .proj li{grid-template-columns:1fr}
+  .job{padding:24px}
+  section{padding:56px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .grid i{transition:none}
+}
+</style>
 </head>
 <body>
 
-<nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="certifications.html">Certifications</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="brand" href="#top">Nishi Sheeba</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-<div class="container">
-    <h1>Nishi Sheeba Sunderraj Justin</h1>
-    <p><strong>System Engineer | Linux Systems Administrator | Automation Specialist</strong></p>
-
-    <div class="card">
-        <p>
-            Linux Systems Administrator with 3+ years of experience managing and automating 
-            Linux-based on-prem and VM environments in large-scale production systems.
-            Strong expertise in Ansible-driven automation, Bash scripting, system monitoring, 
-            and 24/7 on-call operations. Proven track record of reducing operational toil, 
-            improving system reliability, and collaborating closely with development and application teams. 
-            Passionate about automating manual processes, troubleshooting complex systems, 
-            and building stable, scalable infrastructure. 
-        </p>
-
-        <a href="assets/Nishi_Sheeba_Sunderraj_Justin_Resume_2026.pdf" 
-            class="btn" 
-            target="_blank">
-            View Resume
-        </a>
-
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Nishi Sheeba Sunderraj Justin</h1>
+        <p class="role">Systems Engineer, Linux Administrator, Automation Specialist</p>
+        <p class="lede">I keep large Linux production systems running and automate the repetitive work around them. Three years of Ansible driven automation, monitoring and 24/7 on call support, based in Vancouver, BC.</p>
+        <div class="btns">
+          <a class="btn primary" href="assets/Nishi_Sheeba_Sunderraj_Justin_Resume_2026.pdf">View resume</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="fleet" aria-label="Animated grid of 400 servers having their certificates renewed">
+        <div class="fleet-top">
+          <span>Certificates renewed</span>
+          <span class="count"><span id="n">0</span> / 400</span>
+        </div>
+        <div class="grid" id="grid" aria-hidden="true"></div>
+        <p>One Ansible and Bash run deployed SSL certificates across 400+ servers.</p>
+        <p><button type="button" id="replay">Run it again</button></p>
+      </div>
     </div>
-</div>
+  </div>
 
-<footer>
-    © 2026 Nishi Sheeba | Vancouver, BC
-</footer>
+  <section id="about">
+    <div class="wrap">
+      <h2>About</h2>
+      <div class="about">
+        <p>I am a Systems Engineer who has managed Linux infrastructure and middleware platforms in large production environments. My day to day is automation, troubleshooting and making systems more stable.</p>
+        <p>I work with Ansible and Bash for automation, Jenkins and GitHub for CI/CD, Docker for containers, and Google Cloud Platform for cloud infrastructure.</p>
+        <p>I have supported 24/7 production systems, run root cause analysis after incidents, and cut manual effort through automation and monitoring. I work closely with development and application teams.</p>
+      </div>
+    </div>
+  </section>
 
+  <section id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <div class="job">
+        <h3>System Engineer, Tata Consultancy Services</h3>
+        <p class="when">June 2021 to August 2024</p>
+        <ul>
+          <li class="big">Automated SSL certificate deployment across 400+ servers using Ansible and Bash.</li>
+          <li>Managed Linux (RHEL) production servers and kept them highly available.</li>
+          <li>Administered WebLogic and Tomcat middleware environments.</li>
+          <li>Connected monitoring to Prometheus, Grafana, PagerDuty and Slack.</li>
+          <li>Built CI/CD pipelines with Jenkins and GitHub.</li>
+          <li>Monitored CPU, memory, disk and uptime across the infrastructure.</li>
+          <li>Provided 24/7 production support and handled incidents.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill"><h3>Linux systems administration</h3><ul class="chips"><li>RHEL</li><li>On prem</li><li>VM environments</li><li>Production support</li></ul></div>
+        <div class="skill"><h3>Automation and configuration</h3><ul class="chips"><li>Ansible</li><li>Bash</li><li>Python</li></ul></div>
+        <div class="skill"><h3>CI/CD and DevOps</h3><ul class="chips"><li>Jenkins</li><li>GitHub</li><li>Docker</li><li>CI/CD pipelines</li></ul></div>
+        <div class="skill"><h3>Middleware</h3><ul class="chips"><li>WebLogic</li><li>Tomcat</li></ul></div>
+        <div class="skill"><h3>Cloud</h3><ul class="chips"><li>GCP Compute Engine</li><li>GCP IAM</li><li>GCP VPC</li><li>AWS basics</li></ul></div>
+        <div class="skill"><h3>ITSM and collaboration</h3><ul class="chips"><li>ServiceNow</li><li>Jira</li><li>Confluence</li></ul></div>
+        <div class="skill"><h3>Tools</h3><ul class="chips"><li>Git</li><li>VS Code</li><li>1Password</li></ul></div>
+        <div class="skill"><h3>Working style</h3><ul class="chips"><li>Cross team collaboration</li><li>Root cause analysis</li><li>Incident management</li><li>Continuous improvement</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <ul class="proj">
+        <li>
+          <div>
+            <h3>Self healing uptime monitor</h3>
+            <p>End to end automation that checks server uptime and captures incidents in real time.</p>
+            <ul class="chips"><li>Ansible</li><li>Bash</li><li>Python</li><li>ServiceNow</li><li>Linux</li><li>CI/CD</li><li>Git</li></ul>
+          </div>
+          <a class="view" href="assets/Self_Healing.png">View workflow</a>
+        </li>
+        <li>
+          <div>
+            <h3>Certificate expiry check</h3>
+            <p>Automated check that finds certificates close to expiring before they cause an outage.</p>
+            <ul class="chips"><li>Ansible</li><li>Bash</li><li>Linux</li><li>CI/CD</li><li>Git</li></ul>
+          </div>
+          <a class="view" href="assets/Certificate_exipry_check.png">View workflow</a>
+        </li>
+        <li>
+          <div>
+            <h3>Build and configuration deployment</h3>
+            <p>Repeatable deployment of builds and configuration across servers.</p>
+            <ul class="chips"><li>Ansible</li><li>Bash</li><li>Linux</li><li>CI/CD</li><li>Git</li></ul>
+          </div>
+          <a class="view" href="assets/Configuration_deployment.png">View workflow</a>
+        </li>
+        <li>
+          <div>
+            <h3>Server blackout cleanup</h3>
+            <p>Checks for and removes unnecessary monitoring blackouts so alerts are not silenced by mistake.</p>
+            <ul class="chips"><li>Ansible</li><li>Bash</li><li>Linux</li><li>CI/CD</li><li>Git</li></ul>
+          </div>
+          <a class="view" href="assets/Server_blackout_check.png">View workflow</a>
+        </li>
+        <li>
+          <div>
+            <h3>WebLogic patching for Linux servers</h3>
+            <p>Automated WebLogic patching across Linux servers.</p>
+            <ul class="chips"><li>Ansible</li><li>Bash</li><li>Linux</li><li>CI/CD</li><li>Git</li></ul>
+          </div>
+          <a class="view" href="assets/Weblogic_patching.png">View workflow</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="wrap">
+      <h2>Certifications</h2>
+      <div class="certs">
+        <div class="cert"><h3>Google Cloud Associate Cloud Engineer</h3><p>2023. <a href="assets/gcp-certificate.pdf">View certificate</a></p></div>
+        <div class="cert"><h3>Red Hat Certified System Administrator</h3><p>2022</p></div>
+        <div class="cert wip"><h3>Terraform Associate</h3><p>In progress</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p class="big"><a href="mailto:nishisheeba196@gmail.com">nishisheeba196@gmail.com</a></p>
+      <ul>
+        <li>Vancouver, BC</li>
+        <li><a href="https://www.linkedin.com/in/nishi-sheeba-89243b18b">LinkedIn</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Nishi Sheeba, Vancouver, BC</div></footer>
+
+<script>
+(function(){
+  var grid=document.getElementById('grid'), n=document.getElementById('n'), btn=document.getElementById('replay');
+  var cells=[], total=400, timers=[];
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  for(var i=0;i<total;i++){var c=document.createElement('i');grid.appendChild(c);cells.push(c);}
+  function reset(){timers.forEach(clearTimeout);timers=[];cells.forEach(function(c){c.className='';});n.textContent='0';}
+  function finish(){cells.forEach(function(c){c.className='ok';});n.textContent=total;}
+  function run(){
+    reset();
+    if(reduce){finish();return;}
+    var done=0;
+    cells.forEach(function(c,i){
+      var delay=(i/total)*1800+Math.random()*350;
+      timers.push(setTimeout(function(){c.className='ok';done++;n.textContent=done;},delay));
+    });
+    timers.push(setTimeout(finish,2300));
+  }
+  btn.addEventListener('click',run);
+  setTimeout(run,500);
+})();
+</script>
 </body>
 </html>
