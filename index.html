@@ -78,7 +78,7 @@ h2{font:800 clamp(1.9rem,4vw,2.8rem)/1.1 var(--display);letter-spacing:-.02em;ma
 
 /* projects */
 .proj{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
-.proj li{display:grid;grid-template-columns:1fr auto;gap:12px 32px;padding:28px 0;border-bottom:1px solid var(--line);align-items:start}
+.proj > li{display:grid;grid-template-columns:1fr auto;gap:12px 32px;padding:28px 0;border-bottom:1px solid var(--line);align-items:start}
 .proj h3{font:700 1.35rem var(--display);margin:0 0 6px}
 .proj p{margin:0 0 14px;color:var(--muted);max-width:60ch}
 .proj a.view{font-weight:600;color:var(--cobalt);white-space:nowrap}
@@ -103,7 +103,7 @@ footer{background:var(--ink);color:#9AA5BC;padding:0 0 32px;font-size:.9rem}
 @media (max-width:860px){
   .hero .wrap{grid-template-columns:1fr;gap:40px}
   .hero{padding:48px 0 56px}
-  .proj li{grid-template-columns:1fr}
+  .proj > li{grid-template-columns:1fr}
   .job{padding:24px}
   section{padding:56px 0}
 }
@@ -266,7 +266,7 @@ footer{background:var(--ink);color:#9AA5BC;padding:0 0 32px;font-size:.9rem}
       <p class="big"><a href="mailto:nishisheeba196@gmail.com">nishisheeba196@gmail.com</a></p>
       <ul>
         <li>Vancouver, BC</li>
-        <li><a href="https://www.linkedin.com/in/nishi-sheeba-89243b18b">LinkedIn</a></li>
+        <li><a href="www.linkedin.com/in/nishi-sheeba-sunderraj-justin-89243b18b">LinkedIn</a></li>
       </ul>
     </div>
   </section>
