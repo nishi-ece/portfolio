@@ -277,7 +277,7 @@ footer{background:var(--ink);color:#9AA5BC;padding:0 0 32px;font-size:.9rem}
 <script>
 (function(){
   var grid=document.getElementById('grid'), n=document.getElementById('n'), btn=document.getElementById('replay');
-  var cells=[], total=400, timers=[];
+  var cells=[], total=800, timers=[];
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   for(var i=0;i<total;i++){var c=document.createElement('i');grid.appendChild(c);cells.push(c);}
   function reset(){timers.forEach(clearTimeout);timers=[];cells.forEach(function(c){c.className='';});n.textContent='0';}
